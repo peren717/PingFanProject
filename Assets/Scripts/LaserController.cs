@@ -29,5 +29,9 @@ public class LaserController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Destroy(this.gameObject);
+        if(collision.gameObject.tag == "Character")
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }

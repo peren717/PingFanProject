@@ -12,7 +12,7 @@ public class PlayerContoller : MonoBehaviour
     public float Fire2Cooldown_def = 1f;
     public float Fire3Cooldown_def = 1f;
 
-
+    public GameObject PlayerModel;
     public GameObject Laser;
     public GameObject Grenade;
     public GameObject Bullet;
@@ -23,6 +23,7 @@ public class PlayerContoller : MonoBehaviour
     float Fire1Cooldown;
     float Fire2Cooldown;
     float Fire3Cooldown;
+    Animator animator;
 
     CharacterController characterController;
 
@@ -30,6 +31,7 @@ public class PlayerContoller : MonoBehaviour
 
     void Start()
     {
+        animator = PlayerModel.GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
         Fire1Cooldown = Fire1Cooldown_def;
         Fire1Cooldown = Fire2Cooldown_def;
@@ -40,7 +42,7 @@ public class PlayerContoller : MonoBehaviour
 
     void Update()
     {
-        Jump();
+        Move();
         // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
         // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
         // as an acceleration (ms^-2)
@@ -51,10 +53,28 @@ public class PlayerContoller : MonoBehaviour
         Fire1();
         Fire2();
         Fire3();
+
+        if (moveDirection.z != 0f || moveDirection.x != 0f)
+        {
+            animator.SetBool("isWalkingFront", true);
+        }
+        else
+        {
+            animator.SetBool("isWalkingFront", false);
+        }
+        //if(Mathf.Abs(moveDirection.x) > Mathf.Abs(moveDirection.z))
+        //{
+        //    animator.SetBool("isWalkingLeft", true);
+        //}
+        //else
+        //{
+        //    animator.SetBool("isWalkingLeft", false);
+        //}
+
     }
 
 
-    private void Jump()
+    private void Move()
     {
         if (characterController.isGrounded)
         {
@@ -69,6 +89,8 @@ public class PlayerContoller : MonoBehaviour
                 moveDirection.y = jumpSpeed;
             }
         }
+
+
     }
     private void ReforceXrotation()
     {
@@ -99,9 +121,9 @@ public class PlayerContoller : MonoBehaviour
             if (Fire1Cooldown <= 0)
             {
                 Fire1Cooldown = Fire1Cooldown_def;
-                float fire1Offset = 3f;
+                Vector3 fire1Offset = transform.forward* 3f + transform.right * 0.5f;
                 ReforceXrotation();
-                Instantiate(Laser, transform.position + transform.forward*fire1Offset, transform.rotation);
+                Instantiate(Laser, transform.position + fire1Offset, transform.rotation);
             }
         }
     }

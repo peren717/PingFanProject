@@ -12,15 +12,21 @@ public class TileController : MonoBehaviour
     public GameObject Tile;
     public GameObject NextTile;
     public GameObject Boss_v1;
+    public GameObject Camera;
+    public List<GameObject> Crates;
+    public List<GameObject> Obstacles_S;
+    
     public float EnemySpawnInterval;
     public int Difficulty;
     public bool Active;
-    public GameObject Camera;
     public int gid;
     public bool bossRoom;
+    public int MaxObstacle_SNum;
+    public int MaxCrateNum;
 
     float _EnemySpawnInterval;
     List<string> EnemySet;
+    List<GameObject> SpawnedObjects;
     float destoryTimer = 5f;
     bool setToDestroy = false;
 
@@ -28,7 +34,9 @@ public class TileController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SpawnedObjects = new List<GameObject>();
         Active = false;
+        SpawnObstacles();
         _EnemySpawnInterval = EnemySpawnInterval;
         EnemySet = new List<string> {
             "Minion Horde", //Lots of Minions
@@ -78,7 +86,7 @@ public class TileController : MonoBehaviour
         {
             NextTile.GetComponent<TileController>().SpawnNewTile = true;
         }
-
+        //TODO: fix this
 
         if (Active)
         {
@@ -218,5 +226,25 @@ public class TileController : MonoBehaviour
         Instantiate(Assasin, E_location + new Vector3(2f, 0f, 2f), transform.rotation * Quaternion.Euler(0f, 180f, 0f));
     }
 
+    void SpawnObstacles()
+    {
+        Vector3 O_location;
+
+        int index;
+        
+        for(int i = 0; i < MaxCrateNum; i++)
+        {
+            O_location = new Vector3(Random.Range(-50f, 50f),0.5f,transform.position.z+Random.Range(-100f,100f));
+            index = Random.Range(0, Crates.Count);
+            Instantiate(Crates[index], O_location, Quaternion.identity);
+        }
+
+        for (int i = 0; i < MaxObstacle_SNum; i++)
+        {
+            O_location = new Vector3(Random.Range(-50f, 50f), 0.5f, transform.position.z + Random.Range(-100f, 100f));
+            index = Random.Range(0, Obstacles_S.Count);
+            Instantiate(Obstacles_S[index], O_location, Quaternion.identity);
+        }
+    }
 }
 

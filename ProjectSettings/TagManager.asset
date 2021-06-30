@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Character
   - Ground
+  - Cover
   layers:
   - Default
   - TransparentFX

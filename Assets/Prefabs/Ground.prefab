@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e7ed6772552b9e4488b1398f8282ed3b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -123,12 +123,18 @@ MonoBehaviour:
   Tile: {fileID: 1409275824994193466}
   NextTile: {fileID: 0}
   Boss_v1: {fileID: 0}
+  Camera: {fileID: 2026266932821694612, guid: 152405d2da174f9428c32129ba3098a2, type: 3}
+  Crates:
+  - {fileID: 9187857740957836840, guid: dfadcea6b3aab51499c7057ac2c505f3, type: 3}
+  Obstacles_S:
+  - {fileID: 3577165495321229370, guid: 6fdc7136d6b70e94c98f0fd0772bf7ae, type: 3}
   EnemySpawnInterval: 5
   Difficulty: 1
   Active: 0
-  Camera: {fileID: 2026266932821694612, guid: 152405d2da174f9428c32129ba3098a2, type: 3}
   gid: 0
   bossRoom: 0
+  MaxObstacle_SNum: 5
+  MaxCrateNum: 5
 --- !u!1 &6071947202658468712
 GameObject:
   m_ObjectHideFlags: 0
