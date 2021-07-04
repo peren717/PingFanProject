@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 5
-  Speed: 5
+  Speed: 3
   Attack: 0
   Armor: 0
 --- !u!54 &-6177237367978516707

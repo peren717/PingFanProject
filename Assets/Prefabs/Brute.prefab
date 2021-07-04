@@ -108,6 +108,8 @@ GameObject:
   - component: {fileID: 7624232590375197174}
   - component: {fileID: 7624232590375197175}
   - component: {fileID: 5780531406412591189}
+  - component: {fileID: 3380866658113337492}
+  - component: {fileID: 2686442543999273989}
   m_Layer: 0
   m_Name: Brute
   m_TagString: Character
@@ -205,3 +207,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddedaf0994c94f24e90fd935ec2eeb7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3380866658113337492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7624232590375197169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcfc39a00184e304c88050b4d99ed079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 0}
+--- !u!114 &2686442543999273989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7624232590375197169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a47a5c2378bc24a84bb176278f2762, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 10
+  Speed: 2
+  Attack: 0
+  Armor: 0

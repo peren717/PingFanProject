@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TileController : MonoBehaviour
 {
+    public int Sid;
     public bool SpawnNewTile;
     public List<GameObject> Minion_v1;
     public List<GameObject> Marksman_v1;
@@ -13,9 +14,10 @@ public class TileController : MonoBehaviour
     public GameObject NextTile;
     public GameObject Boss_v1;
     public GameObject Camera;
+    public GameObject LightPole;
     public List<GameObject> Crates;
     public List<GameObject> Obstacles_S;
-    
+
     public float EnemySpawnInterval;
     public int Difficulty;
     public bool Active;
@@ -46,8 +48,14 @@ public class TileController : MonoBehaviour
             "Paratroopers",  //Randomly drops few assasin
             //TODO: add more variants.
         };
+
+
         //TODO: Change this
         Difficulty = 1;
+        Sid=1;
+
+        if (Sid == 1)
+            SpawnLights();
     }
 
 
@@ -58,7 +66,7 @@ public class TileController : MonoBehaviour
         {
             NextTile = Instantiate(Tile, transform.position + new Vector3(0, 0, 200), Quaternion.identity);
             NextTile.GetComponent<TileController>().SpawnNewTile = false;
-            NextTile.GetComponent<TileController>().gid = gid+=1;
+            NextTile.GetComponent<TileController>().gid = gid += 1;
             NextTile.name = "Ground" + (gid + 1).ToString();
             SpawnNewTile = false;
         }
@@ -149,7 +157,7 @@ public class TileController : MonoBehaviour
         {
             index = Random.Range(0, Minion_v1.Count);
             Minion = Minion_v1[index];
-            Vector3 E_location = new Vector3(-40+i*10, 1f, location.z + 200);
+            Vector3 E_location = new Vector3(-40 + i * 10, 1f, location.z + 200);
             Instantiate(Minion, E_location, transform.rotation * Quaternion.Euler(0f, 180f, 0f));
         }
     }
@@ -161,7 +169,7 @@ public class TileController : MonoBehaviour
         Vector3 location = Camera.transform.position;
         GameObject Minion;
 
-        Instantiate(Assasin, new Vector3(-40f,1f, location.z+ 200), transform.rotation * Quaternion.Euler(0f, 180f, 0f));
+        Instantiate(Assasin, new Vector3(-40f, 1f, location.z + 200), transform.rotation * Quaternion.Euler(0f, 180f, 0f));
         Instantiate(Assasin, new Vector3(40f, 1f, location.z + 200), transform.rotation * Quaternion.Euler(0f, 180f, 0f));
 
         for (int i = 0; i < 3; i++)
@@ -205,7 +213,7 @@ public class TileController : MonoBehaviour
 
             index = Random.Range(0, Minion_v1.Count);
             Minion = Minion_v1[index];
-            Instantiate(Minion, E_location + new Vector3(-2f,0f,2f), transform.rotation * Quaternion.Euler(0f, 180f, 0f));
+            Instantiate(Minion, E_location + new Vector3(-2f, 0f, 2f), transform.rotation * Quaternion.Euler(0f, 180f, 0f));
 
             index = Random.Range(0, Minion_v1.Count);
             Minion = Minion_v1[index];
@@ -231,10 +239,10 @@ public class TileController : MonoBehaviour
         Vector3 O_location;
 
         int index;
-        
-        for(int i = 0; i < MaxCrateNum; i++)
+
+        for (int i = 0; i < MaxCrateNum; i++)
         {
-            O_location = new Vector3(Random.Range(-50f, 50f),0.5f,transform.position.z+Random.Range(-100f,100f));
+            O_location = new Vector3(Random.Range(-50f, 50f), 0.5f, transform.position.z + Random.Range(-100f, 100f));
             index = Random.Range(0, Crates.Count);
             Instantiate(Crates[index], O_location, Quaternion.identity);
         }
@@ -244,6 +252,15 @@ public class TileController : MonoBehaviour
             O_location = new Vector3(Random.Range(-50f, 50f), 0.5f, transform.position.z + Random.Range(-100f, 100f));
             index = Random.Range(0, Obstacles_S.Count);
             Instantiate(Obstacles_S[index], O_location, Quaternion.identity);
+        }
+    }
+
+    void SpawnLights()
+    {
+        for(int i = 0; i < 6; i++)
+        {
+            Instantiate(LightPole, new Vector3(45f,3f,transform.position.z - 90f + 30*i), Quaternion.identity);
+            Instantiate(LightPole, new Vector3(-45f, 3f, transform.position.z - 90f + 30 * i), Quaternion.identity);
         }
     }
 }

@@ -58,14 +58,15 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\LaserController.cs" />
     <Compile Include="Assets\Scripts\FadeIn.cs" />
-    <Compile Include="Assets\MinionAI.cs" />
+    <Compile Include="Assets\Scripts\MinionAI.cs" />
     <Compile Include="Assets\Scripts\PlayerContoller.cs" />
+    <Compile Include="Assets\Scripts\AI_Marksman.cs" />
     <Compile Include="Assets\Scripts\GrenadeController.cs" />
     <Compile Include="Assets\Scripts\TileController.cs" />
-    <Compile Include="Assets\Attributes.cs" />
+    <Compile Include="Assets\Scripts\Attributes.cs" />
     <Compile Include="Assets\Scripts\CloudControl.cs" />
     <Compile Include="Assets\Scripts\CameraControl.cs" />
-    <Compile Include="Assets\AI_Marksman.cs" />
+    <Compile Include="Assets\UI_script.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

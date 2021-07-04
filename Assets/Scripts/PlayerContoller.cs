@@ -17,6 +17,7 @@ public class PlayerContoller : MonoBehaviour
     public GameObject Grenade;
     public GameObject Bullet;
     public int maxGrenadeNum;
+    public int DashModifier;
 
     //Private fields
     int GrenadeNum;
@@ -46,13 +47,15 @@ public class PlayerContoller : MonoBehaviour
         // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
         // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
         // as an acceleration (ms^-2)
-        moveDirection.y -= gravity * Time.deltaTime;
-        // Move the controller
-        characterController.Move(moveDirection * Time.deltaTime);
+
         PointAtMouse();
-        Fire1();
-        Fire2();
-        Fire3();
+        if (!Input.GetButton("Dash"))
+        {
+            Fire1();
+            Fire2();
+            Fire3();
+        }
+
 
         if (moveDirection.z != 0f || moveDirection.x != 0f)
         {
@@ -82,6 +85,15 @@ public class PlayerContoller : MonoBehaviour
             // move direction directly from axes
 
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+            if (Input.GetButton("Dash"))
+            {
+                moveDirection*= DashModifier;
+                animator.SetBool("isDashing", true);
+            }
+            else
+            {
+                animator.SetBool("isDashing", false);
+            }
             moveDirection *= speed;
 
             if (Input.GetButton("Jump"))
@@ -90,6 +102,9 @@ public class PlayerContoller : MonoBehaviour
             }
         }
 
+        moveDirection.y -= gravity * Time.deltaTime;
+        // Move the controller
+        characterController.Move(moveDirection * Time.deltaTime);
 
     }
     private void ReforceXrotation()

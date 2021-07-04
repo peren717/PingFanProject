@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 3801040729775474366}
   - component: {fileID: 6236825615066037276}
   - component: {fileID: 7866553017003082358}
+  - component: {fileID: -3920639707253989103}
+  - component: {fileID: 1861349115769168363}
   m_Layer: 0
   m_Name: Marksman
   m_TagString: Character
@@ -123,6 +125,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0421692226b9fe040a5a22c8f0372fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Bullet: {fileID: 9007371953041987034, guid: 5e24ebdfd93d104459711e7bb2d0579e, type: 3}
+  EmptyTarget: {fileID: 1918729008430055013, guid: 2db243be854e68841af7df1f17a6d7b5, type: 3}
+  FireInverval: 3
+  Accuracy: 5
+--- !u!114 &-3920639707253989103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3801040729775474360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a47a5c2378bc24a84bb176278f2762, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 5
+  Speed: 3
+  Attack: 0
+  Armor: 0
+--- !u!54 &1861349115769168363
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3801040729775474360}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 84
+  m_CollisionDetection: 0
 --- !u!1 &7247348455366556579
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,6 +173,7 @@ GameObject:
   - component: {fileID: 4229551751900453805}
   - component: {fileID: 3102637940774188547}
   - component: {fileID: 619981452412343174}
+  - component: {fileID: 8227808088503283926}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -183,7 +222,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c140733249a99ec4ea6d8d9ab01dc584, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -218,3 +257,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8227808088503283926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7247348455366556579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddedaf0994c94f24e90fd935ec2eeb7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

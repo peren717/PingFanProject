@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7554134679697738289}
   - component: {fileID: 562073851334416021}
   - component: {fileID: 5148602278722669391}
+  - component: {fileID: 2921992771296740312}
   m_Layer: 0
   m_Name: Player_sol
   m_TagString: Player
@@ -124,6 +125,7 @@ MonoBehaviour:
   Grenade: {fileID: 6938799372227030654, guid: 77ae7b2858843684f9db2277c22ca7a1, type: 3}
   Bullet: {fileID: 9007371953041987034, guid: 5e24ebdfd93d104459711e7bb2d0579e, type: 3}
   maxGrenadeNum: 3
+  DashModifier: 2
 --- !u!143 &7554134679697738289
 CharacterController:
   m_ObjectHideFlags: 0
@@ -168,7 +170,7 @@ Animator:
   m_GameObject: {fileID: 7554134679697738296}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f66e93431762a9e478638a6ede0ca819, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -177,6 +179,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2921992771296740312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7554134679697738296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a47a5c2378bc24a84bb176278f2762, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 5
+  Speed: 6
+  Attack: 0
+  Armor: 0
+  Stamina: 5
 --- !u!1 &7554134680784563842
 GameObject:
   m_ObjectHideFlags: 0

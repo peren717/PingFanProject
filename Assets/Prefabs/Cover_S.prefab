@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 7080244325299942364}
   - component: {fileID: 1847417230351553422}
   - component: {fileID: 1564954363009848703}
+  - component: {fileID: 5982708704952063397}
   m_Layer: 0
   m_Name: Cover_S
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,3 +96,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5982708704952063397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3577165495321229370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a47a5c2378bc24a84bb176278f2762, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 0
+  Speed: 0
+  Attack: 0
+  Armor: 0
